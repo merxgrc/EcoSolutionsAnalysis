@@ -82,7 +82,7 @@ print(count_removed)
 
 # Join datasets based on common columns (Dam_Name, Longitude, Latitude, River)
 merged_dams <- full_join(Removed_Dams_filtered, dams_filtered, 
-                         by = c("Dam_Name", "Longitude", "Latitude", "River"))
+                         by = c("Dam_Name", "Longitude", "Latitude", "River", "Removed"))
 
 
 count_not_removed <- sum(merged_dams$Removed == 0)
@@ -90,34 +90,9 @@ print(count_not_removed)
 count_removed <- sum(merged_dams$Removed == 1)
 print(count_removed)
 
-
-
-
-
-
-
-
-
-
-
-
 # Check the structure of merged_dams to identify correct column names
 str(merged_dams)
 str(Removed_Dams_filtered)
-
-shared_dams <- merged_dams %>%
-  filter(!is.na(Removed.x)) %>%  # Only keep rows with valid Removed.x (0 for not removed)
-  select(Dam_Name, Longitude, Latitude, River,  # Regular spaces
-         Dam_Height_ft.x, Year_Built.x, Removed.x)
-
-# Create a shared dataset, does not removed NA entries
-shared_dams <- merged_dams %>%
-  filter(!is.na(Removed.x) | !is.na(Removed.y)) %>%  # Regular spaces
-  select(Dam_Name, Longitude, Latitude, River,  # Regular spaces
-         Dam_Height_ft.x, Year_Built.x, Removed.x)
-     
-str(shared_dams)
-
 
 #original function does not work
 # Create a shared dataset with only relevant columns and non-NA entries
@@ -132,6 +107,11 @@ str(shared_dams)
 shared_dams <- merged_dams %>%
   filter(!is.na(Dam_Height_ft.x))  # Filter only for non-NA Dam_Height_ft.x
 
+count_not_removed <- sum(shared_dams$Removed == 0)
+print(count_not_removed)
+count_removed <- sum(shared_dams$Removed == 1)
+print(count_removed)
+
 # Convert Dam_Height_ft.x to numeric (if necessary)
 shared_dams <- shared_dams %>%
   mutate(Dam_Height_ft.x = as.numeric(Dam_Height_ft.x))
@@ -140,7 +120,7 @@ shared_dams <- shared_dams %>%
 shared_dams <- shared_dams %>%
   mutate(Dam_Height_Bin = cut(Dam_Height_ft.x, breaks = seq(0, max(Dam_Height_ft.x, na.rm = TRUE), by = 50)))
 
-ggplot(shared_dams, aes(x = Dam_Height_Bin, fill = factor(Removed.x))) +
+ggplot(shared_dams, aes(x = Dam_Height_Bin, fill = factor(Removed))) +
   geom_bar(position = "dodge") +
   labs(title = "Dam Height vs. Removal Status (CA)",
        x = "Dam Height Bin (ft)",
