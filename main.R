@@ -103,6 +103,18 @@ str(Removed_Dams_filtered)
 #         Year_Built = coalesce(Year_Built.x, Year_Built.y), 
 #         Removed = coalesce(Removed.x, Removed.y))
 
+
+# Display the shared dataset
+print(shared_dams)
+
+# Save the shared dataset to a CSV file
+#output_path <- "C:/Users/Marcos Garcia/Desktop/DataJam Project Klamath river/EcoSolutionsAnalysis/Data/shared_dams_dataset.csv"
+output_path <- "~/Desktop/DataJam_Project/EcoSolutionsAnalysis/Data/shared_dams_dataset.csv"
+write.csv(shared_dams, output_path, row.names = FALSE)
+
+#Sample Data representations
+#vvvvvvvvvvvvvvvvvvvvvvvvvvv
+
 # Filter for rows with non-NA values in Dam_Height_ft.x only
 shared_dams <- merged_dams %>%
   filter(!is.na(Dam_Height_ft.x))  # Filter only for non-NA Dam_Height_ft.x
@@ -127,13 +139,5 @@ ggplot(shared_dams, aes(x = Dam_Height_Bin, fill = factor(Removed))) +
        y = "Count of Dams",
        fill = "Removal Status") +
   theme_classic()
-
-# Display the shared dataset
-print(shared_dams)
-
-# Save the shared dataset to a CSV file
-#output_path <- "C:/Users/Marcos Garcia/Desktop/DataJam Project Klamath river/EcoSolutionsAnalysis/Data/shared_dams_dataset.csv"
-output_path <- "~/Desktop/DataJam_Project/EcoSolutionsAnalysis/Data/shared_dams_dataset.csv"
-write.csv(shared_dams, output_path, row.names = FALSE)
 
 
