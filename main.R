@@ -28,10 +28,10 @@ Removed_Dams_filtered <- Removed_Dams %>%
 dams_filtered <- dams %>%
   filter(State == "California") %>%
   select(Dam_Name = Dam.Name, Longitude, Latitude, River = River.or.Stream.Name,
-         Dam_Height_ft= Dam.Height..Ft., Year_Built = Year.Completed) %>%
+         Dam_Height_ft = Dam.Height..Ft., Year_Built = Year.Completed) %>%
   mutate(Removed = 0)  # Mark as not removed
 
-# Convert Longitude to numeric for both datasets if necessary
+# Convert Longitude to numeric for both datasets
 Removed_Dams_filtered$Longitude <- as.numeric(Removed_Dams_filtered$Longitude)
 dams_filtered$Longitude <- as.numeric(dams_filtered$Longitude)
 
@@ -41,7 +41,7 @@ Removed_Dams_filtered <- Removed_Dams_filtered %>%
   mutate(Dam_Height_ft = as.integer(Dam_Height_ft),
          Year_Built = as.integer(Year_Built))
 
-# Join datasets based on common columns (Dam_Name, Longitude, Latitude, River)
+# Join datasets based on common columns
 merged_dams <- full_join(Removed_Dams_filtered, dams_filtered, 
                          by = c("Dam_Name", "Longitude", "Latitude", "River"))
 
@@ -76,5 +76,6 @@ ggplot(merged_dams_filtered, aes(x = Dam_Height_ft.x, fill = factor(Removed))) +
        y = "Count of Dams",
        fill = "Removal Status") +
   theme_classic()
+
 
 
