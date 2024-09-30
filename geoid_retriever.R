@@ -11,18 +11,22 @@ library(jsonlite)
 shared_dams_path <- "~/Desktop/DataJam_Project/EcoSolutionsAnalysis/Data/shared_dams_dataset.csv"
 shared_dams <- read.csv(shared_dams_path)
 
-# Assuming your dataset is stored in a data frame called 'my_data'
-# and the latitude and longitude columns are named 'latitude' and 'longitude'
-#missing_lat_lon <- sum(is.na(shared_dams$Latitude) | 
-#                         shared_dams$Latitude == "" | 
-#                         is.na(shared_dams$Longitude) | 
-#                         shared_dams$Longitude == "")
-#print(missing_lat_lon)
+# calculate number entries with missing coordinates should be removed
+missing_lat_lon <- sum(is.na(shared_dams$Latitude) | 
+                         shared_dams$Latitude == "" | 
+                         is.na(shared_dams$Longitude) | 
+                         shared_dams$Longitude == "")
+print(missing_lat_lon)
 
-#does not work, filters for not against
+num_rows <- nrow(shared_dams)
+print(num_rows)
+
 # Remove rows with invalid (NA) coordinates
 valid_dams <- shared_dams %>%
   filter(!is.na(Latitude) & !is.na(Longitude))
+
+num_rows <- nrow(valid_dams)
+print(num_rows)
 
 # Assign a unique ID to each dam entry for easier matching later
 valid_dams <- valid_dams %>%
@@ -76,6 +80,15 @@ for (i in seq(start_index, nrow(valid_dams), by = batch_size)) {
     }
   }
   
+  num_empty_geoids <- sum(is.na(valid_dams$Geoid))
+  
+  if (num_empty_geoids == 0) {
+    print("All entries have a valid geoid!")
+  } else {
+    print(paste(num_empty_geoids, "entries have empty geoid values."))
+  }
+  
+  
   # Save the intermediate results to a CSV file in the Data folder
   # output_path <- "C:/Users/Marcos Garcia/Desktop/DataJam Project Klamath river/EcoSolutionsAnalysis/Data/shared_dams_with_geoid_intermediate.csv"
   output_path <- "~/Desktop/DataJam_Project/EcoSolutionsAnalysis/Data/shared_dams_with_geoid_intermediate.csv"
@@ -96,12 +109,12 @@ View(shared_dams_with_geoid)
 
 
 # Check for empty geoids in the final dataset
-#num_empty_geoids <- sum(is.na(shared_dams_with_geoid$Geoid))
+num_empty_geoids <- sum(is.na(shared_dams_with_geoid$Geoid))
 
-#if (num_empty_geoids == 0) {
-#  print("All entries have a valid geoid!")
-#} else {
-#  print(paste(num_empty_geoids, "entries have empty geoid values."))
-#}
+if (num_empty_geoids == 0) {
+  print("All entries have a valid geoid!")
+} else {
+  print(paste(num_empty_geoids, "entries have empty geoid values."))
+}
 
 
