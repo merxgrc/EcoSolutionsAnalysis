@@ -1,12 +1,25 @@
+#install.packages("httr")
+#install.packages("jsonlite")
+
 # Load required packages
 library(dplyr)
 library(httr)
 library(jsonlite)
 
 # Load the shared dams dataset
-shared_dams_path <- "C:/Users/Marcos Garcia/Desktop/DataJam Project Klamath river/EcoSolutionsAnalysis/Data/shared_dams_dataset.csv"
+#shared_dams_path <- "C:/Users/Marcos Garcia/Desktop/DataJam Project Klamath river/EcoSolutionsAnalysis/Data/shared_dams_dataset.csv"
+shared_dams_path <- "~/Desktop/DataJam_Project/EcoSolutionsAnalysis/Data/shared_dams_dataset.csv"
 shared_dams <- read.csv(shared_dams_path)
 
+# Assuming your dataset is stored in a data frame called 'my_data'
+# and the latitude and longitude columns are named 'latitude' and 'longitude'
+#missing_lat_lon <- sum(is.na(shared_dams$Latitude) | 
+#                         shared_dams$Latitude == "" | 
+#                         is.na(shared_dams$Longitude) | 
+#                         shared_dams$Longitude == "")
+#print(missing_lat_lon)
+
+#does not work, filters for not against
 # Remove rows with invalid (NA) coordinates
 valid_dams <- shared_dams %>%
   filter(!is.na(Latitude) & !is.na(Longitude))
@@ -64,13 +77,16 @@ for (i in seq(start_index, nrow(valid_dams), by = batch_size)) {
   }
   
   # Save the intermediate results to a CSV file in the Data folder
-  output_path <- "C:/Users/Marcos Garcia/Desktop/DataJam Project Klamath river/EcoSolutionsAnalysis/Data/shared_dams_with_geoid_intermediate.csv"
-  write.csv(valid_dams, output_path, row.names = FALSE)
+  # output_path <- "C:/Users/Marcos Garcia/Desktop/DataJam Project Klamath river/EcoSolutionsAnalysis/Data/shared_dams_with_geoid_intermediate.csv"
+  output_path <- "~/Desktop/DataJam_Project/EcoSolutionsAnalysis/Data/shared_dams_with_geoid_intermediate.csv"
+   write.csv(valid_dams, output_path, row.names = FALSE)
   cat("Saved batch results to:", output_path, "\n")
 }
 
 # Save the final dataset to a new CSV file in the Data folder
-final_output_path <- "C:/Users/Marcos Garcia/Desktop/DataJam Project Klamath river/EcoSolutionsAnalysis/Data/shared_dams_with_geoid_final.csv"
+# final_output_path <- "C:/Users/Marcos Garcia/Desktop/DataJam Project Klamath river/EcoSolutionsAnalysis/Data/shared_dams_with_geoid_final.csv"
+final_output_path <- "~/Desktop/DataJam_Project/EcoSolutionsAnalysis/Data/shared_dams_with_geoid_final.csv"
+
 write.csv(valid_dams, final_output_path, row.names = FALSE)
 cat("Final dataset with geoid saved to:", final_output_path, "\n")
 
@@ -78,5 +94,14 @@ cat("Final dataset with geoid saved to:", final_output_path, "\n")
 shared_dams_with_geoid <- read.csv(final_output_path)
 View(shared_dams_with_geoid)
 
+
+# Check for empty geoids in the final dataset
+#num_empty_geoids <- sum(is.na(shared_dams_with_geoid$Geoid))
+
+#if (num_empty_geoids == 0) {
+#  print("All entries have a valid geoid!")
+#} else {
+#  print(paste(num_empty_geoids, "entries have empty geoid values."))
+#}
 
 
