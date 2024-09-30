@@ -1,0 +1,112 @@
+"Dam_Name","Longitude","Latitude","River","Dam_Height_ft.x","Year_Built.x","Removed","Dam_Height_ft.y","Year_Built.y","Dam_Height_Bin","Geoid"
+"Big Creek Manufacturing Dam",NA,NA,"Big Creek",14,NA,1,NA,NA,"(0,50]",NA
+"Minnie Reeves Dam",-122.908,40.63811,"Indian Creek",20,NA,1,NA,NA,"(0,50]",NA
+"Lone Jack Dam",NA,NA,"Trinity River (East Fork of North Fork)",24,NA,1,NA,NA,"(0,50]",NA
+"Arco Pond Dam",NA,NA,"",10,NA,1,NA,NA,"(0,50]",NA
+"Salt Creek Dam",-122.795,39.29306,"Salt Creek",10,NA,1,NA,NA,"(0,50]",NA
+"Lower Murphy Dam",-122.918,38.06938,"Home Bay",6,NA,1,NA,NA,"(0,50]",NA
+"Upper Murphy Dam",-122.904,38.08526,"Home Ranch Creek",25,NA,1,NA,NA,"(0,50]",NA
+"Russell Dam (Hinkley Dam)",NA,NA,"Hayfork Creek",11,NA,1,NA,NA,"(0,50]",NA
+"Hessellwood Dam",NA,NA,"Hayfork Creek",10,NA,1,NA,NA,"(0,50]",NA
+"Anderline Dam",NA,NA,"Rush Creek",20,NA,1,NA,NA,"(0,50]",NA
+"Bonally Mining Co. Dam",NA,NA,"Salmon River (North Fork)",11,NA,1,NA,NA,"(0,50]",NA
+"Trinity Cty. Water & Power Co. Dam",NA,NA,"Trinity River (East Fork)",10,NA,1,NA,NA,"(0,50]",NA
+"D.B. Fields Dam",NA,NA,"Indian Creek",6,NA,1,NA,NA,"(0,50]",NA
+"Altoona Dam",NA,NA,"Kidder Creek",12,NA,1,NA,NA,"(0,50]",NA
+"Big Nugget Mine Dam",NA,NA,"Horse Creek",12,NA,1,NA,NA,"(0,50]",NA
+"Todd Dam",NA,NA,"Trinity River (East Fork of North Fork)",14,NA,1,NA,NA,"(0,50]",NA
+"Smith Dam",NA,NA,"White's Gulch",8,NA,1,NA,NA,"(0,50]",NA
+"Clarissa V. Mining Dam",NA,NA,"Redding Creek",20,NA,1,NA,NA,"(0,50]",NA
+"Bennett-Smith Dam",NA,NA,"Salmon River (South Fork)",10,NA,1,NA,NA,"(0,50]",NA
+"Barton Dam",NA,NA,"Scott River (South Fork)",12,NA,1,NA,NA,"(0,50]",NA
+"North Fork Placers Dam",NA,NA,"Trinity River (North Fork)",15,NA,1,NA,NA,"(0,50]",NA
+"Red Hill Mining Do. Dam",NA,NA,"Canyon Creek",30,NA,1,NA,NA,"(0,50]",NA
+"Quinn Dam",NA,NA,"Trinity River (East Fork of North Fork)",14,NA,1,NA,NA,"(0,50]",NA
+"Sweasey Dam",-123.956,40.81962,"Mad River",55,NA,1,NA,NA,"(50,100]",NA
+"Bear Valley Dam",-122.814,37.99325,"",15,NA,1,NA,NA,"(0,50]",NA
+"Rogers Dam",-122.787,38.04692,"Tributary to Olema Creek",40,NA,1,NA,NA,"(0,50]",NA
+"Happy Isles Dam",NA,NA,"",8,NA,1,NA,NA,"(0,50]",NA
+"Upper Dam (Lost Man Dam)",-124.02192,41.329068,"Lost Man Creek",7,NA,1,NA,NA,"(0,50]",NA
+"Unnamed Dam #1",NA,NA,"Wildcat Creek",6,NA,1,NA,NA,"(0,50]",NA
+"Unnamed Dam #2",NA,NA,"Wildcat Creek",6,NA,1,NA,NA,"(0,50]",NA
+"Point Four Dam",NA,NA,"Butte Creek",6,NA,1,NA,NA,"(0,50]",NA
+"C-Lind Dam #1",NA,NA,"",56,NA,1,NA,NA,"(50,100]",NA
+"Lake Christopher Dam",NA,NA,"Cold Creek",10,NA,1,NA,NA,"(0,50]",NA
+"McPherrin Dam",-121.874,39.44674,"Butte Creek",12,NA,1,NA,NA,"(0,50]",NA
+"Western Canal East Dam",NA,NA,"Butte Creek",10,NA,1,NA,NA,"(0,50]",NA
+"Western Canal Main Dam",NA,NA,"Butte Creek",10,NA,1,NA,NA,"(0,50]",NA
+"McCormick-Saeltzer Dam",-122.471,40.49316,"Clear Creek",18,1907,1,NA,NA,"(0,50]",NA
+"Crocker Creek Dam",-122.959,38.77714,"Crocker Creek",30,1904,1,NA,NA,"(0,50]",NA
+"Unnamed Dam",NA,NA,"Ferrari Creek",5,NA,1,NA,NA,"(0,50]",NA
+"North Debris Dam",NA,NA,"Unnamed Trib. to the Los Angeles River",20,NA,1,NA,NA,"(0,50]",NA
+"Trancas Debris Dam",NA,NA,"Unnamed Trib. to the Trancas Canyon",15,NA,1,NA,NA,"(0,50]",NA
+"A-Frame Dam",NA,NA,"Brandy Creek",30,NA,1,NA,NA,"(0,50]",NA
+"East Panther Creek Dam",-120.3975,38.49,"East Panther Creek",12,NA,1,NA,NA,"(0,50]",NA
+"Cascade Diversion Dam",-119.682,37.71827,"Merced River",18,1918,1,NA,NA,"(0,50]",NA
+"Murphy Creek Dam (Sparrow Dam)",-121.026446,38.234021,"Murphy Creek",12,NA,1,NA,NA,"(0,50]",NA
+"Haypress Pond Dam",-122.547,37.86288,"Unnamed Tributary",20,NA,1,NA,NA,"(0,50]",NA
+"West Panther Creek Dam",-120.393264,38.492942,"West Panther Creek",14,NA,1,NA,NA,"(0,50]",NA
+"Horse Creek Dam",-120.017,34.83759,"Horse Creek",12,NA,1,NA,NA,"(0,50]",NA
+"Tucker Road Ford",-121.958,37.09985,"Soquel Creek",5,NA,1,NA,NA,"(0,50]",NA
+"East Mill Creek Dam",-124.273,40.32146,"East Mill Creek",12,NA,1,NA,NA,"(0,50]",NA
+"Camp Meeker Dam",-122.959,38.42465,"Dutch Bill Creek",12,NA,1,NA,NA,"(0,50]",NA
+"Waterman Dam",-122.176097,37.21437,"Waterman Creek",12,1900,1,NA,NA,"(0,50]",NA
+"Glenbrook Gulch Dam",-123.669,39.26526,"Glenbrook Gulch (Albion River)",10,NA,1,NA,NA,"(0,50]",NA
+"Hostler Creek Dam ",-123.668,41.07869,"Hostler Creek",14,1940,1,NA,NA,"(0,50]",NA
+"Bear Creek Dam #3",-122.243,37.41515,"Bear Creek (San Francisquito Creek)",7,NA,1,NA,NA,"(0,50]",NA
+"Cahill Dam",-121.986,37.03797,"Branciforte Creek",8,1931,1,NA,NA,"(0,50]",NA
+"HJFD8",-117.516,33.68352,"",5,NA,1,NA,NA,"(0,50]",NA
+"Lion Creek Diversion Dam",-119.164,34.54438,"Lion Creek",3,1940,1,NA,NA,"(0,50]",NA
+"TCFD7",-117.526,33.67418,"Trabuco Creek",6,NA,1,NA,NA,"(0,50]",NA
+"TCFD9",-117.525,33.67436,"Trabuco Creek",9,NA,1,NA,NA,"(0,50]",NA
+"San Clemente Dam",-121.7088,36.4359,"Carmel River",106,1921,1,NA,NA,NA,NA
+"Maria Ygnacio Aijian Barrier",-119.794309,34.466395,"Maria Ygnacio Creek",5,NA,1,NA,NA,"(0,50]",NA
+"Old Carmel River Dam",-121.7048028,36.43875,"Carmel River",32,1883,1,NA,NA,"(0,50]",NA
+"Benbow Dam",-123.7961,40.0666,"South Fork Eel River",20,1931,1,NA,NA,"(0,50]",NA
+"McGowan Dam",NA,NA,"Butte Creek",6,NA,1,NA,NA,"(0,50]",NA
+"HJFD16",-117.511869966,33.6887681441,"Holy Jim Creek",2,NA,1,NA,NA,"(0,50]",NA
+"HJFD17",-117.511853966,33.6888471441,"Holy Jim Creek",4,NA,1,NA,NA,"(0,50]",NA
+"Milliken Creek Dam",-122.263458,38.349033,"Milliken Creek/Napa River",13,NA,1,NA,NA,"(0,50]",NA
+"SCFD12",-117.568091951,33.7522271399,"Silverado Creek",4,NA,1,NA,NA,"(0,50]",NA
+"Dennett Dam",-120.98784,37.62733,"Tuolumne River",10,1933,1,NA,NA,"(0,50]",NA
+"HJFD11",-117.515112,33.68381514,"Holy Jim Creek",1,NA,1,NA,NA,"(0,50]",NA
+"HJFD2",-117.517256,33.68053315,"Holy Jim Creek",4,NA,1,NA,NA,"(0,50]",NA
+"HJFD22",-117.51185,33.69085714,"Holy Jim Creek",5,NA,1,NA,NA,"(0,50]",NA
+"HJFD25",-117.511602,33.69147814,"Holy Jim Creek",4,NA,1,NA,NA,"(0,50]",NA
+"HJFD29",-117.512096,33.69223914,"Holy Jim Creek",6,NA,1,NA,NA,"(0,50]",NA
+"HJFD30",-117.512136,33.69219014,"Holy Jim Creek",4,NA,1,NA,NA,"(0,50]",NA
+"HJFD37",-117.513562,33.69300514,"Holy Jim Creek",3,NA,1,NA,NA,"(0,50]",NA
+"Lagunita Diversion Dam",-122.1742,37.4234,"San Francisquito Creek",8,1900,1,NA,NA,"(0,50]",NA
+"SJFD1",-117.501797,33.59022515,"San Juan Creek",9,NA,1,NA,NA,"(0,50]",NA
+"HJFD3",-117.515912,33.68271815,"Holy Jim Creek",3,1970,1,NA,NA,"(0,50]",NA
+"HJFD4",-117.515878,33.68289515,"Holy Jim Creek",2,1970,1,NA,NA,"(0,50]",NA
+"HJFD5",-117.515863,33.68302615,"Holy Jim Creek",5,1970,1,NA,NA,"(0,50]",NA
+"Iron Horse Dam",-122.8967539,38.46321758,"Green Valley Creek",10,NA,1,NA,NA,"(0,50]",NA
+"Maria Ygnacio Debris Basin Dam East Branch",-119.791167,34.460633,"East Branch Maria Ygnacio Creek",20,1990,1,NA,NA,"(0,50]",NA
+"Maria Ygnacio Debris Basin Dam Main Branch",-119.791906,34.475239,"Maria Ygnacio Creek",20,1990,1,NA,NA,"(0,50]",NA
+"SCFD4",-117.501699,33.59047015,"Silverado Creek",10,1970,1,NA,NA,"(0,50]",NA
+"SCFD5",-117.5015405,33.59077823,"Silverado Creek",3,1970,1,NA,NA,"(0,50]",NA
+"SJFD12",-117.499648,33.59060215,"San Juan Creek",10,1970,1,NA,NA,"(0,50]",NA
+"SJFD13",-117.499024,33.59071315,"San Juan Creek",2,1970,1,NA,NA,"(0,50]",NA
+"SJFD14",-117.497336,33.59259715,"San Juan Creek",12,1970,1,NA,NA,"(0,50]",NA
+"SJFD15",-117.496232,33.59279315,"San Juan Creek",4,1970,1,NA,NA,"(0,50]",NA
+"SJFD17",-117.471615,33.59266615,"San Juan Creek",2,1970,1,NA,NA,"(0,50]",NA
+"SJFD18",-117.473384,33.59252015,"San Juan Creek",3,1970,1,NA,NA,"(0,50]",NA
+"SJFD19",-117.474884,33.59249515,"San Juan Creek",6,1970,1,NA,NA,"(0,50]",NA
+"SJFD20",-117.475298,33.59287715,"San Juan Creek",10,1970,1,NA,NA,"(0,50]",NA
+"SJFD21",-117.4709178,33.59209689,"San Juan Creek",3,1970,1,NA,NA,"(0,50]",NA
+"SJFD22",-117.470796,33.59212115,"San Juan Creek",2,1970,1,NA,NA,"(0,50]",NA
+"SJFD23",-117.468106,33.59424715,"San Juan Creek",13,1970,1,NA,NA,"(0,50]",NA
+"SJFD24",-117.470796,33.59212115,"San Juan Creek",5,1970,1,NA,NA,"(0,50]",NA
+"SJFD25",-117.468106,33.59424715,"San Juan Creek",2,1970,1,NA,NA,"(0,50]",NA
+"SJFD26",-117.4667394,33.59384097,"San Juan Creek",5,1970,1,NA,NA,"(0,50]",NA
+"SJFD27",-117.466307,33.59372615,"San Juan Creek",5,1970,1,NA,NA,"(0,50]",NA
+"Grenada Irrigation District Dam",-122.557544,41.727016,"Shasta River",12,NA,1,NA,NA,"(0,50]",NA
+"Beale Dam",-121.338499,39.108423,"Dry Creek",12,1943,1,NA,NA,"(0,50]",NA
+"York Dam",-122.496,38.509,"York Creek",24,NA,1,NA,NA,"(0,50]",NA
+"Columbine Dam",-121.7935,37.35344,"Flint Creek",24,1963,1,NA,NA,"(0,50]",NA
+"Lower Mill Creek Dam ",-122.1686,37.04256,"Mill Creek",15,1910,1,NA,NA,"(0,50]",NA
+"Cedar Creek Hatchery Dam",-123.7075,39.8398,"Cedar Creek",20,1948,1,NA,NA,"(0,50]",NA
+"Copco 2 Dam",-122.34025,41.97902,"Klamath River",63,1925,1,NA,NA,"(50,100]",NA
+"Double U Fish Ranch Dam",-120.9008,41.4555,"Howards Gulch",27,NA,1,NA,NA,"(0,50]",NA
+"East Weaver Creek Dam",-122.929808,40.776989,"East Weaver Creek",12,NA,1,NA,NA,"(0,50]",NA
