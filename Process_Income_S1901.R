@@ -40,72 +40,43 @@ for (geo_id in shared_dams_with_geoid[[geoid_column]]) {
 #clean the data entries that are not matched to our geo_ids
 S1901_data_cleaned <- S1901_data[!is.na(S1901_data$unique_dam_id),]
 
-# Extract the first row and convert it to a vector
-first_row <- head(S1901_data, 1)
-first_row_vector <- as.vector(first_row)
+# Define column indices (replace 25, 26 with actual indices)
+column_indices <- c(25, 26)
 
-# Search for the phrase "estimate" in the column names to not use the error columns
-matching_indices <- which(grepl("Estimate", first_row_vector))
-
-
-
-
-
-
-# vvvvvv unfinished processing work for plot, stuck here
-
-
-# Function to process data points for matching indices
-process_values <- function(df, matching_indices) {
-  # Iterate through each row of the data frame
-  for (i in 1:nrow(df)) {
-    selected_row <- df[i, ]
-    
-    # Print row number
-    cat("Row ", i, ": ")
-    
-    # Iterate through matching indices
-    for (index in matching_indices) {
-      # Extract parameter value using index
-      value <- selected_row[[index]]
-      
-      # Print parameter value
-      cat(paste0(colnames(df)[index], ": ", value), sep = " ")
-    }
-    
-    # Print newline after each row
-    cat("\n")
-  }
+# Check for valid column indices
+if (any(column_indices < 1 | column_indices > ncol(S1901_data_cleaned))) {
+  stop("Error: Invalid column indices provided!")
 }
 
-process_values(S1901_data_cleaned, matching_indices)
+# Select desired parameters by index
+desired_parameters <- colnames(S1901_data_cleaned)[column_indices]
 
+# Create the new dataset
+selected_data <- S1901_data_cleaned[, c(desired_parameters, "removed", "unique_dam_id")]
 
+# Print or use the selected_data for further analysis
+print(head(selected_data))  # Print the first few rows
 
-
-# Function to process data points for matching indices
-process_values <- function(df, matching_indices) {
-  # Iterate through each row of the data frame
-  for (i in 1:nrow(df)) {
-    selected_row <- df[i, ]
-    
-    # ... (rest of the code remains the same) ...
-    
-    # Create a data frame for this row's data
-    row_data <- data.frame(
-      parameter = colnames(df)[matching_indices],
-      value = selected_row[matching_indices]
-    )
-    
-    # Convert values to numeric
-    row_data$value <- as.numeric(row_data$value)
-    
-    # Plot the data (replace 'plot type' with your desired plot)
-    ggplot(row_data, aes(x = parameter, y = value)) + 
-      geom_point(aes(color = df$removed[i])) +  # Color points based on removed status
-      labs(title = paste0("Row ", i), x = "Parameter", y = "Value")
-    
-  }
+#plot median 
+# Check for NA values
+num_na <- sum(is.na(selected_data$S1901_C01_012E))
+if (num_na > 0) {
+  warning("NA values found in S1901_C01_012E. Consider handling them.")
 }
 
-process_values(S1901_data_cleaned, matching_indices)
+# Convert to numeric if necessary
+selected_data$S1901_C01_012E <- as.numeric(selected_data$S1901_C01_012E)
+
+# Remove rows with NA values (adjust as needed)
+selected_data <- selected_data %>%
+  na.omit(cols = "S1901_C01_012E")
+
+class(selected_data$S1901_C01_012E)
+
+ggplot(selected_data, aes(x = removed, y = S1901_C01_012E)) +
+  geom_bar(stat = "summary", fun = "median") +
+  scale_x_discrete(labels = c("0" = "Not Removed", "1" = "Removed"), breaks = c(0, 1)) +
+  scale_y_continuous(breaks = seq(min(selected_data$S1901_C01_012E), max(selected_data$S1901_C01_012E), length.out = 5)) +
+  labs(title = "Median Income by Removal Status",
+       x = "Removal Status",
+       y = "Median Income")
