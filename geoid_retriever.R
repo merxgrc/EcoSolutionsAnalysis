@@ -1,5 +1,5 @@
-#install.packages("httr")
-#install.packages("jsonlite")
+# install.packages("httr")
+# install.packages("jsonlite")
 
 # Load required packages
 library(dplyr)
@@ -31,6 +31,9 @@ print(num_rows)
 # Assign a unique ID to each dam entry for easier matching later
 valid_dams <- valid_dams %>%
   mutate(Unique_ID = row_number())
+
+lat <- valid_dams$Latitude
+lon <- valid_dams$Longitude
 
 # Define the function to get geoid from latitude and longitude
 get_geoid_updated <- function(lat, lon) {
