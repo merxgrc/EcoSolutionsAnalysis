@@ -107,85 +107,32 @@ overall_std_dev <- sd(selected_data$S1901_C01_012E)
 print(paste("Overall Mean of Medians:", overall_mean))
 print(paste("Overall Standard Deviation of Medians:", overall_std_dev))
 
-
-# Calculate the mean and standard deviation for each group
-grouped_data <- selected_data %>%
-  group_by(removed) %>%
-  summarize(mean_income = mean(S1901_C01_012E),
-            sd_income = sd(S1901_C01_012E),
-            n = n())
-
-# Calculate the standard error
-grouped_data$se_income <- grouped_data$sd_income / sqrt(grouped_data$n)
-
-# Print the results
-print(grouped_data$se_income)
-
-# Calculate the mean, standard deviation, sample size, and standard error
-grouped_data <- selected_data %>%
-  group_by(removed) %>%
-  summarize(mean_income = mean(S1901_C01_012E),
-            sd_income = sd(S1901_C01_012E),
-            n = n(),
-            se_income = sd_income / sqrt(n))
-
-# Calculate the confidence intervals (assuming a 95% confidence level)
-grouped_data$lower_ci <- grouped_data$mean_income - 1.96 * grouped_data$se_income
-grouped_data$upper_ci <- grouped_data$mean_income + 1.96 * grouped_data$se_income
-
-# Print the results
-print(grouped_data)
-
-
-
-
-
-
-
-
-
-
-
-# plot mean income data
-
-
-# Create the new dataset
-selected_data <- S1901_data_cleaned[, c(desired_parameters, "removed", "unique_dam_id")]
-
-# Check for NA values
-selected_data <- selected_data %>%
-  na.omit(cols = "S1901_C01_013E")
-
-selected_data <- selected_data %>%
-  filter(grepl("^[0-9.]+$", S1901_C01_013E))
-
-# Convert to numeric if necessary
-selected_data$S1901_C01_013E <- as.numeric(selected_data$S1901_C01_013E)
-
-ggplot(selected_data, aes(x = removed, y = S1901_C01_013E)) +
-  geom_bar(stat = "summary", fun = "mean") +
-  scale_x_discrete(labels = c("0" = "Not Removed", "1" = "Removed"), breaks = c(0, 1)) +
-  scale_y_continuous(breaks = seq(min(selected_data$S1901_C01_013E), max(selected_data$S1901_C01_013E), length.out = 5)) +
-  labs(title = "Median Income by Removal Status",
+# Boxplot
+ggplot(selected_data, aes(x = removed, y = S1901_C01_012E)) +
+  geom_boxplot(fill = "blue") +  # Add fill color
+  scale_x_discrete(labels = c("0" = "Not Removed", "1" = "Removed")) +
+  scale_y_continuous(breaks = seq(min(selected_data$S1901_C01_012E), max(selected_data$S1901_C01_012E), length.out = 5),
+                     labels = scales::dollar_format(suffix = " USD")) +
+  labs(title = "Distribution of Median Income by Removal Status",
        x = "Removal Status",
-       y = "Mean Income")
+       y = "Median Income (USD)") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
 
 
-correlation <- cor(selected_data$removed, selected_data$S1901_C01_013E)
-print(correlation)
+# Calculate IQR for each group
+iqr_not_removed <- IQR(selected_data$S1901_C01_012E[selected_data$removed == 0])
+iqr_removed <- IQR(selected_data$S1901_C01_012E[selected_data$removed == 1])
 
-overall_median <- median(selected_data$S1901_C01_013E)
-overall_std_dev <- sd(selected_data$S1901_C01_013E)
-
-print(paste("Overall Median of Medians:", overall_median))
-print(paste("Overall Standard Deviation of Medians:", overall_std_dev))
-
+# Print the IQR for each group
+print(paste("IQR (Not Removed):", iqr_not_removed))
+print(paste("IQR (Removed):", iqr_removed))
 
 # Calculate the mean and standard deviation for each group
 grouped_data <- selected_data %>%
   group_by(removed) %>%
-  summarize(mean_income = mean(S1901_C01_013E),
-            sd_income = sd(S1901_C01_013E),
+  summarize(mean_income = mean(S1901_C01_012E),
+            sd_income = sd(S1901_C01_012E),
             n = n())
 
 # Calculate the standard error
@@ -197,8 +144,8 @@ print(grouped_data$se_income)
 # Calculate the mean, standard deviation, sample size, and standard error
 grouped_data <- selected_data %>%
   group_by(removed) %>%
-  summarize(mean_income = mean(S1901_C01_013E),
-            sd_income = sd(S1901_C01_013E),
+  summarize(mean_income = mean(S1901_C01_012E),
+            sd_income = sd(S1901_C01_012E),
             n = n(),
             se_income = sd_income / sqrt(n))
 
@@ -208,6 +155,9 @@ grouped_data$upper_ci <- grouped_data$mean_income + 1.96 * grouped_data$se_incom
 
 # Print the results
 print(grouped_data)
+
+
+
 
 
 
