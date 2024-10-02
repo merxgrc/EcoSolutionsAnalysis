@@ -73,21 +73,38 @@ selected_data <- selected_data %>%
 
 class(selected_data$S1901_C01_012E)
 
+# Scatter Plot
 ggplot(selected_data, aes(x = removed, y = S1901_C01_012E)) +
-  geom_bar(stat = "summary", fun = "median") +
+  geom_point(aes(size = 3), color = "blue") +
   scale_x_discrete(labels = c("0" = "Not Removed", "1" = "Removed")) +
-  scale_y_continuous(breaks = seq(min(selected_data$S1901_C01_012E), max(selected_data$S1901_C01_012E), length.out = 5)) +
+  scale_y_continuous(breaks = seq(min(selected_data$S1901_C01_012E), max(selected_data$S1901_C01_012E), length.out = 5),
+                     labels = scales::dollar_format(suffix = " USD")) +  # Format y-axis labels as currency
   labs(title = "Median Income by Removal Status",
        x = "Removal Status",
-       y = "Median Income")
+       y = "Median Income (USD)") +
+  theme_minimal() +  # Use minimal theme for a cleaner look
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for better readability
+
+# Bar Plot
+ggplot(selected_data, aes(x = removed, y = S1901_C01_012E)) +
+  geom_bar(stat = "summary", fun = "mean", fill = "skyblue") +  # Use sky blue color for bars
+  scale_x_discrete(labels = c("0" = "Not Removed", "1" = "Removed")) +
+  scale_y_continuous(breaks = seq(min(selected_data$S1901_C01_012E), max(selected_data$S1901_C01_012E), length.out = 5),
+                     labels = scales::dollar_format(suffix = " USD")) +
+  labs(title = "Mean of Median Income by Removal Status",
+       x = "Removal Status",
+       y = "Mean Income (USD)") +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5))
 
 correlation <- cor(selected_data$removed, selected_data$S1901_C01_012E)
 print(correlation)
 
-overall_median <- median(selected_data$S1901_C01_012E)
+overall_mean <- mean(selected_data$S1901_C01_012E)
 overall_std_dev <- sd(selected_data$S1901_C01_012E)
 
-print(paste("Overall Median of Medians:", overall_median))
+print(paste("Overall Mean of Medians:", overall_mean))
 print(paste("Overall Standard Deviation of Medians:", overall_std_dev))
 
 
@@ -118,6 +135,14 @@ grouped_data$upper_ci <- grouped_data$mean_income + 1.96 * grouped_data$se_incom
 
 # Print the results
 print(grouped_data)
+
+
+
+
+
+
+
+
 
 
 
@@ -183,6 +208,8 @@ grouped_data$upper_ci <- grouped_data$mean_income + 1.96 * grouped_data$se_incom
 
 # Print the results
 print(grouped_data)
+
+
 
 
 
